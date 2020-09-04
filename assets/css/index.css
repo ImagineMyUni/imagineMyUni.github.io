@@ -80,7 +80,7 @@ header nav{
     flex: 0 0 33%;
     max-width: 33%;
     text-align: center;
-    font-size: 32px;
+    font-size: 35px;
 }
 
 a{
@@ -503,4 +503,32 @@ input[type=checkbox]:checked + label:before {
 .consult-detail{
     margin-left: 55px;
     width: 90%;
+    font-size: 22px;
+}
+
+.consult-detail p{
+    margin: 0 0 10px 0;
+}
+
+.box-title text{
+    display: block;
+}
+
+.box-title .second-line{
+    text-align: right;
+}
+
+.consult-detail a{
+    text-decoration: underline;
+    color: #2f87c1;
+}
+
+.consult-box h3{
+    padding-left: 18px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.consult-box{
+    margin-bottom: 130px;
 }

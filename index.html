@@ -76,8 +76,9 @@
                             <thead>
                                 <tr>
                                     <th>대학명</th>
+                                    <th>지역</th>
                                     <th>나의 등급</th>
-                                    <th>작년 합격평균</th>
+                                    <th>과별 입결</th>
                                 </tr>
                             </thead>
                             <!-- js로 tbody 넘어옴 -->
@@ -126,9 +127,10 @@
                 var table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
                 $.each(data, function(index, value){
                     var tmpData = '<tr>\
-                                        <td>'+value.uni+'</td>\
-                                        <td>'+value.myGrade+'</td>\
-                                        <td>'+value.pastAverage+'</td>\
+                                        <td>'+value.university+'</td>\
+                                        <td>'+value.area+'</td>\
+                                        <td>'+String(value.converted).slice(0,4)+'</td>\
+                                        <td><a class="link-btn" href="'+value.url+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>\
                                     </tr>';
                     table += tmpData;
                     if((index+1)%10 == 0){

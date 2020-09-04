@@ -1,57 +1,81 @@
 [
     {
-        "uni": "대학명09",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     },
     {
-        "uni": "대학명11",
-        "myGrade": 2.75,
-        "pastAverage": 2.75
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
+    },
+    {
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
+    },
+    {
+        "university": "대학명09",
+        "area": "전남",
+        "converted": 2.75879879876546,
+        "url": "url"
     }
+   
 ]

@@ -100,7 +100,7 @@ a{
 }
 
 .box-title{
-    font-size: 42px;
+    font-size: 45px;
     font-weight: 500;
     padding: 10px 40px 20px 40px;
 }
@@ -497,13 +497,13 @@ input[type=checkbox]:checked + label:before {
 }
 
 .convert-table th, .convert-table td{
-    width: 33%;
+    width: 25%;
 }
 
 .consult-detail{
     margin-left: 55px;
     width: 90%;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .consult-detail p{
@@ -525,10 +525,19 @@ input[type=checkbox]:checked + label:before {
 
 .consult-box h3{
     padding-left: 18px;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
 }
 
 .consult-box{
     margin-bottom: 130px;
+}
+
+.review-order{
+    width: 20%;
+}
+
+.review-title{
+    text-decoration: underline;
+    width: 80%;
 }

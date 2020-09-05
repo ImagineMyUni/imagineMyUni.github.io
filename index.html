@@ -146,9 +146,12 @@
                             choice: $('input[name=choice]').val(),
                         },
 				        success: function( data ) {
+                            var json_data = JSON.parse(data);
+                            console.log(json_data);
+                            console.log(json_data.result);
                             var tableId = 1;
                             var table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
-                            $.each(data, function(index, value){
+                            $.each(json_data.result, function(index, value){
                                 var tmpData = '<tr>\
                                                     <td>'+value.university+'</td>\
                                                     <td>'+value.area+'</td>\

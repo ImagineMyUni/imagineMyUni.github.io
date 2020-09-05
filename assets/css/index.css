@@ -541,3 +541,30 @@ input[type=checkbox]:checked + label:before {
     text-decoration: underline;
     width: 80%;
 }
+
+#error-window{
+    display: none;
+    position: absolute;
+    width: 400px;
+    height: 150px;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -75px;
+}
+
+#error-window #message{
+    margin:0;
+    padding: 50px 8px 0 8px;
+    text-align: center;
+}
+
+#error-window #close-btn{
+    position: absolute;
+    margin: 0;
+    right: 2%;
+    top: 1%;
+}

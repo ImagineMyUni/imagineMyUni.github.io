@@ -16,6 +16,12 @@
                 crossOrigin : true,
                 url: 'http://54.180.12.10:4000/api/edu/contents/video',
                 type: 'GET',
+                headers: {
+                            'Access-Control-Allow-Credentials' : true,
+                            'Access-Control-Allow-Origin':'*',
+                            'Access-Control-Allow-Methods':'GET',
+                            'Access-Control-Allow-Headers':'application/json',
+                        },
                 success: function( data ) {
                     var json_data = JSON.parse(data);
                     console.log(json_data);

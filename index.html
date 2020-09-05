@@ -27,10 +27,10 @@
                     <div class="div1-3 box">
                         <h1 class="box-title">반영과목 및 비율 선택</h1>
                         <div class="sub-form">
-                            <input type="checkbox" name="status" id="1" value="0"/><label for="1">전과목</label>
-                            <input type="checkbox" name="status" id="2" value="1"/><label for="2">필수과목(국/영/수/사/과/한)</label><br>
-                            <input type="checkbox" name="status" id="3" value="2"/><label for="3">국/영/수 가중 반영</label>
-                            <input type="checkbox" name="status" id="4" value="3"/><label for="4">상위</label>
+                            <input type="radio" name="status" id="1" value="0"/><label for="1">전과목</label>
+                            <input type="radio" name="status" id="2" value="1"/><label for="2">필수과목(국/영/수/사/과/한)</label><br>
+                            <input type="radio" name="status" id="3" value="2"/><label for="3">국/영/수 가중 반영</label>
+                            <input type="radio" name="status" id="4" value="3"/><label for="4">상위</label>
                         </div>
                     </div>
                     <div class="div1-4 initial box">
@@ -104,6 +104,10 @@
                 </div>
 			</div>
         </div>
+        <div id="error-window">
+            <p id="close-btn">X</p>
+            <p id="message">서버가 점검 중입니다.</p>
+        </div>
         <script type="text/javascript">
 			$('#input-btn').click(function(){
 				var display = $('.score-form').css('display');
@@ -124,17 +128,19 @@
             })
 
             $("#sendbutton").click(function (event) {
-                console.log($('input[name=status]').val());
-                console.log($('#abcd').attr('class'));
-                alert("start02");
 				$('#abcd').submit(function(event){
-					alert("dmdkdk");
 					event.preventDefault();
 					$.ajax({
                         crossOrigin : true,
                         url: 'http://54.180.12.10:4000/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",
+                        headers: {
+                            'Access-Control-Allow-Credentials' : true,
+                            'Access-Control-Allow-Origin':'*',
+                            'Access-Control-Allow-Methods':'GET',
+                            'Access-Control-Allow-Headers':'application/json',
+                        },
                         data: {
                             status : $('input[name=status]').val(),
                             korean: $('input[name=korean]').val(),
@@ -147,11 +153,23 @@
                         },
 				        success: function( data ) {
                             var json_data = JSON.parse(data);
-                            console.log(json_data);
+                            var fullData = []
+
+                            console.log("json_data.result");
                             console.log(json_data.result);
+
+                            $.each(json_data.result, function(index, big_data){
+                                $.each(big_data, function(index, data){
+                                    console.log(data);
+                                })
+                            })
+
+                            console.log("allData:");
+                            console.log(fullData);
+                            
                             var tableId = 1;
                             var table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
-                            $.each(json_data.result, function(index, value){
+                            $.each(fullData, function(index, value){
                                 var tmpData = '<tr>\
                                                     <td>'+value.university+'</td>\
                                                     <td>'+value.area+'</td>\
@@ -182,9 +200,14 @@
                         error:function(request,status,error){
                             console.log("request:"+request);
                             console.log("status:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                            $('#error-window').css('display', 'block');
                         }
                     })
 				})
+            })
+
+            $('#close-btn').click(function(){
+                $('#error-window').css('display', 'none');
             })
 
             // 대학명 검색필터 구현

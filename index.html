@@ -3,7 +3,8 @@
         <meta charset="UTF-8">
         <title>비교내신 환산</title>
         <link rel="stylesheet" href="assets/css/index.css">
-		<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.ajax-cross-origin.min.js"></script>
     </head>
     <body>
 		<img id="limit-img" src="assets/img/test.jpg"/>
@@ -121,33 +122,66 @@
                     $('#filter-nav').css('display', 'none');
                 }
             })
-            
-            $.get( '../assets/json/convert_result.json', function( data ) {
-                var tableId = 1;
-                var table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
-                $.each(data, function(index, value){
-                    var tmpData = '<tr>\
-                                        <td>'+value.university+'</td>\
-                                        <td>'+value.area+'</td>\
-                                        <td>'+String(value.converted).slice(0,4)+'</td>\
-                                        <td><a class="link-btn" href="'+value.url+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>\
-                                    </tr>';
-                    table += tmpData;
-                    if((index+1)%10 == 0){
-                        table += '</tbody>';
-                        $('.result-table').append(table);
-                        if(tableId == 1){
-                            $('#resultTbody1').css('display', 'table-row-group');
-                            $('.result-table').attr('id', '1');
+
+            $("#sendbutton").click(function (event) {
+                console.log($('input[name=status]').val());
+                console.log($('#abcd').attr('class'));
+                alert("start02");
+				$('#abcd').submit(function(event){
+					alert("dmdkdk");
+					event.preventDefault();
+					$.ajax({
+                        crossOrigin : true,
+                        url: 'http://54.180.12.10:4000/api/converter/each_converter',
+                        type: "GET",
+                        dataType: "json",
+                        data: {
+                            status : $('input[name=status]').val(),
+                            korean: $('input[name=korean]').val(),
+                            english: $('input[name=english]').val(),
+                            math: $('input[name=math]').val(),
+                            society: $('input[name=society]').val(),
+                            science: $('input[name=science]').val(),
+                            history: $('input[name=history]').val(),
+                            choice: $('input[name=choice]').val(),
+                        },
+				        success: function( data ) {
+                            var tableId = 1;
+                            var table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
+                            $.each(data, function(index, value){
+                                var tmpData = '<tr>\
+                                                    <td>'+value.university+'</td>\
+                                                    <td>'+value.area+'</td>\
+                                                    <td>'+String(value.converted).slice(0,4)+'</td>';
+                                if (value.link){
+                                    tmpData += '<td><a class="link-btn" href="'+value.link+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>'
+                                }                               
+                                tmpData += '</tr>';
+
+                                table += tmpData;
+                                
+                                if((index+1)%10 == 0){
+                                    table += '</tbody>';
+                                    $('.result-table').append(table);
+                                    if(tableId == 1){
+                                        $('#resultTbody1').css('display', 'table-row-group');
+                                        $('.result-table').attr('id', '1');
+                                    }
+                                    tableId += 1;
+                                    table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
+                                }
+                            })
+                            if (table.indexOf('</tbody>') == -1){
+                                table += '</tbody>';
+                                $('.result-table').append(table);
+                            }
+                        },
+                        error:function(request,status,error){
+                            console.log("request:"+request);
+                            console.log("status:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                         }
-                        tableId += 1;
-                        table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
-                    }
-                })
-                if (table.indexOf('</tbody>') == -1){
-                    table += '</tbody>';
-                    $('.result-table').append(table);
-                }
+                    })
+				})
             })
 
             // 대학명 검색필터 구현

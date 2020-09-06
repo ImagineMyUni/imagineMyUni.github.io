@@ -12,7 +12,6 @@
 			<header>
 				<div class="header-top">
 					<a href="index.html"><img src="assets/img/logo/마이유니-타이포-버전.png" class="logo-img"/></a>
-					<button type="button" name="login" class="login-btn"><a href="login.html">로그인</a></button>
 				</div>
 				<nav class="contents">
 					<ul>
@@ -152,11 +151,6 @@
                             console.log("json_data.result");
                             console.log(json_data.result);
 
-                            $.each(json_data.result, function(index, big_data){
-                                $.each(big_data, function(index, data){
-                                    console.log(data);
-                                })
-                            })
 
                             console.log("allData:");
                             console.log(fullData);
@@ -194,6 +188,9 @@
                         error:function(request,status,error){
                             $('#error-window').css('display', 'block');
                             console.log("status:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                        },
+                        complete: function(data){
+                            console.log(data);
                         }
                     })
 				})

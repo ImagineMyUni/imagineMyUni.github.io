@@ -4,7 +4,6 @@
         <title>비교내신 환산</title>
         <link rel="stylesheet" href="assets/css/index.css">
         <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="assets/js/jquery.ajax-cross-origin.min.js"></script>
     </head>
     <body>
 		<img id="limit-img" src="assets/img/test.jpg"/>
@@ -105,7 +104,7 @@
         </div>
         <div id="error-window">
             <p id="close-btn">X</p>
-            <p id="message">서버가 점검 중입니다.</p>
+            <p class="message">서버가 점검 중입니다.</p>
         </div>
         <script type="text/javascript">
 			$('#input-btn').click(function(){
@@ -130,7 +129,6 @@
 				$('#abcd').submit(function(event){
 					event.preventDefault();
 					$.ajax({
-                        crossOrigin : true,
                         url: 'http://54.180.12.10:4000/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",

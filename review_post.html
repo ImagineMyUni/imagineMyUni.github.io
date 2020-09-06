@@ -4,8 +4,6 @@
         <title>비교내신 환산</title>
         <link rel="stylesheet" href="assets/css/index.css">
         <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="assets/js/jquery.ajax-cross-origin.min.js"></script>
-    </head>
     <body>
         <img id="limit-img" src="assets/img/test.jpg"/>
 		<div class="main-contents">
@@ -24,7 +22,6 @@
             <form id="review-form">
                 <div class="box">
                     <h1 class="box-title">후기 작성하기</h1>
-                    <div></div>
                     <p class="review-form-detail"><label for="title">제목</label><input type="text" name="title" id="title"/></p>
                     <p class="review-form-detail"><label for="author">작성자</label><input type="text" name="author" id="author"/></p>
                     <p class="review-form-detail"><label for="password">비밀번호</label><input type="text" name="password" id="password"/></p>
@@ -38,10 +35,9 @@
         <script type="text/javascript">
         $("#sendbutton").click(function (event) {
 				$('#review-form').submit(function(event){
-                    console.log(String($('input[name=time]').val()));
+                    console.log(String($('input[name=time]').val()).slice(0, 10)+" "+String($('input[name=time]').val()).slice(11));
 					event.preventDefault();
 					$.ajax({
-                        crossOrigin : true,
                         url: 'http://54.180.12.10:4000/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",
@@ -49,7 +45,7 @@
                             title : $('input[name=title]').val(),
                             author: $('input[name=author]').val(),
                             password: $('input[name=password]').val(),
-                            time: String($('input[name=time]').val()),
+                            time: String($('input[name=time]').val()).slice(0, 10)+" "+String($('input[name=time]').val()).slice(11),
                             body: $('input[name=body]').val(),
                         },
 				        success: function( data ) {

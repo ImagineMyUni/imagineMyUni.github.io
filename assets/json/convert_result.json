@@ -1,81 +1,87 @@
-[
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    },
-    {
-        "university": "대학명09",
-        "area": "전남",
-        "converted": 2.75879879876546,
-        "url": "url"
-    }
-   
-]
+{
+    "result": [
+        [
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울",
+                "converted": 351
+            }
+        ],
+        [
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울",
+                "converted": 351
+            },
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울",
+                "converted": 351
+            }
+        ],
+        [
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울",
+                "converted": 351
+            },
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울",
+                "converted": 351
+            },
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울/부산",
+                "converted": 351
+            },
+            {
+                "university":"가톨릭관동대학교", 
+                "area": "경기",
+                "converted": 250,
+                "link": "url"
+            },
+            {
+                "university":"배제대학교", 
+                "area": "서울",
+                "converted": 351
+            }
+        ]
+    ]
+}

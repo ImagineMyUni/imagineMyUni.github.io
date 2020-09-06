@@ -80,6 +80,9 @@
                                     <th>과별 입결</th>
                                 </tr>
                             </thead>
+                            <tbody class="resultTbody">
+
+                            </tbody>
                             <!-- js로 tbody 넘어옴 -->
                         </table>
                     </div>
@@ -125,6 +128,11 @@
                 }
             })
 
+            function showTable(){
+                $('.resultTr1').css('display', 'table-row');
+                $('.result-table').attr('id', '1');
+            }
+
             $("#sendbutton").click(function (event) {
 				$('#abcd').submit(function(event){
 					event.preventDefault();
@@ -132,56 +140,41 @@
                         url: 'http://54.180.12.10:4000/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",
-                        data: {
-                            status : $('input[name=status]').val(),
-                            korean: $('input[name=korean]').val(),
-                            english: $('input[name=english]').val(),
-                            math: $('input[name=math]').val(),
-                            society: $('input[name=society]').val(),
-                            science: $('input[name=science]').val(),
-                            history: $('input[name=history]').val(),
-                            choice: $('input[name=choice]').val(),
-                        },
 				        success: function( data ) {
-                            var json_data = JSON.parse(data);
-                            var fullData = []
+                            var fullData = [];
 
-                            console.log("json_data.result");
-                            console.log(json_data.result);
-
+                            $.each(data.result, function(index, value){
+                                console.log("index: " + index);
+                                console.log(value);
+                                $.each(value, function(index, each_val){
+                                    console.log("a_data");
+                                    console.log(each_val);
+                                    fullData.push(each_val);
+                                })
+                            })
 
                             console.log("allData:");
                             console.log(fullData);
                             
-                            var tableId = 1;
-                            var table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
+                            var trIndex = 1;
                             $.each(fullData, function(index, value){
-                                var tmpData = '<tr>\
-                                                    <td>'+value.university+'</td>\
-                                                    <td>'+value.area+'</td>\
-                                                    <td>'+String(value.converted).slice(0,4)+'</td>';
+                                var tmpData = '<tr class= "resultTr resultTr'+trIndex+'"">\
+                                                    <td class="university">'+value.university+'</td>\
+                                                    <td class="rest">'+value.area+'</td>\
+                                                    <td class="rest">'+String(value.converted).slice(0,4)+'</td>';
                                 if (value.link){
-                                    tmpData += '<td><a class="link-btn" href="'+value.link+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>'
+                                    tmpData += '<td class="rest"><a class="link-btn" href="'+value.link+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>'
                                 }                               
                                 tmpData += '</tr>';
 
-                                table += tmpData;
+                                $('#resultTbody').append(tmpData);
                                 
                                 if((index+1)%10 == 0){
-                                    table += '</tbody>';
-                                    $('.result-table').append(table);
-                                    if(tableId == 1){
-                                        $('#resultTbody1').css('display', 'table-row-group');
-                                        $('.result-table').attr('id', '1');
-                                    }
-                                    tableId += 1;
-                                    table = '<tbody class="resultTbody" id=resultTbody'+tableId+'>';
+                                    trIndex += 1;
                                 }
                             })
-                            if (table.indexOf('</tbody>') == -1){
-                                table += '</tbody>';
-                                $('.result-table').append(table);
-                            }
+
+                            showTable();
                         },
                         error:function(request,status,error){
                             $('#error-window').css('display', 'block');
@@ -203,6 +196,7 @@
                 var k = $(this).val();
                 $(".convert-table > tbody > tr").hide();
                 var temp = $(".convert-table > tbody > tr > td:nth-child(5n+1):contains('" + k + "')");
+
                 console.log(temp);
 
                 $(temp).parent().show();
@@ -212,10 +206,10 @@
             $('#move-r-btn').click(function(){
                 var result = $('.result-table').attr('id');
                 var next_result = Number(result)+1;
-                if($('#resultTbody'+String(next_result)).length != 0){
-                    $('#resultTbody'+String(result)).css('display', 'none');
+                if($('.resultTr'+next_result).length != 0){
+                    $('.resultTr').css('display', 'none');
+                    $('.resultTr'+next_result).css('display', 'table-row');
                     $('.result-table').attr('id', String(next_result));
-                    $('#resultTbody'+String(next_result)).css('display', 'table-row-group'); 
                 }
             })
 
@@ -223,10 +217,10 @@
             $('#move-l-btn').click(function(){
                 var result = $('.result-table').attr('id');
                 var before_result = Number(result)-1;
-                if($('#resultTbody'+String(before_result)).length != 0){
-                    $('#resultTbody'+String(result)).css('display', 'none');
+                if($('.resultTr'+before_result).length != 0){
+                    $('.resultTr').css('display', 'none');
+                    $('.resultTr'+before_result).css('display', 'table-row');
                     $('.result-table').attr('id', String(before_result));
-                    $('#resultTbody'+String(before_result)).css('display', 'table-row-group'); 
                 }
             })
 		</script>

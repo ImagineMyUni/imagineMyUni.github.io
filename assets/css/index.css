@@ -222,7 +222,7 @@ input[type=radio]:checked + label:before {
     color: #707070;
 }
 
-.resultTbody{
+.resultTr{
     display: none;
 }
 
@@ -495,9 +495,6 @@ input[type=radio]:checked + label:before {
     margin-top: -45px;
 }
 
-.convert-table th, .convert-table td{
-    width: 25%;
-}
 
 .consult-detail{
     margin-left: 55px;
@@ -675,4 +672,12 @@ input[type=radio]:checked + label:before {
     margin-left: -200px;
     margin-top: -100px;
     padding-bottom: 20px;
+}
+
+.university{
+    width: 40%;
+}
+
+.rest{
+    width: 20%;
 }

@@ -67,7 +67,7 @@
                     console.log(String($('input[name=time]').val()).slice(0, 10)+" "+String($('input[name=time]').val()).slice(11));
 					event.preventDefault();
 					$.ajax({
-                        url: 'http://54.180.12.10:4000/api/converter/each_converter',
+                        url: 'https://www.hellomyuni.kr/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",
                         data: {
@@ -79,7 +79,7 @@
                             body: $('input[name=body]').val(),
                         },
 				        success: function( data ) {
-                            window.location.href = 'http://127.0.0.1:5500/consulting.html';
+                            window.location.href = 'https://www.hellomyuni.kr/consulting.html';
                             // 실제 url로 바꾸기
                         },
                         error:function(request,status,error){

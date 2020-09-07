@@ -12,7 +12,6 @@
 			<header>
 				<div class="header-top">
 					<a href="index.html"><img src="assets/img/logo/마이유니-타이포-버전.png" class="logo-img"/></a>
-					<button type="button" name="login" class="login-btn"><a href="login.html">로그인</a></button>
 				</div>
 				<nav class="contents">
 					<ul>
@@ -84,11 +83,36 @@
                     <tbody>
                         <tr>
                             <td class="review-order">1</td>
-                            <td class="review-title">후기 제목</td>
+                            <td class="review-title" id="0">후기 제목</td>
                         </tr>
                     </tbody>
                 </table>
+                <button type="button" class="mini-btn" id="write-btn">글쓰기</button>
             </div>
         </div>
+        <script type="text/javascript">
+        $('#write-btn').click(function(){
+            window.location.href = 'http://127.0.0.1:5500/reveiw_post.html';
+        })
+
+        $('.review-title').click(function(){
+            var post_id = $(this).attr('id');
+            console.log(post_id);
+            $.ajax(
+                {
+                    url: 'url',
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        id : post_id
+                    },
+                    success:function(data){
+                        console.log("성공");
+                        window.location.href = 'http://127.0.0.1:5500/reveiw_detail.html';
+                    }
+                }
+            )
+        })
+        </script>
     </body>
 </html>

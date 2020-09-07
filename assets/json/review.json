@@ -1,0 +1,12 @@
+{
+    "result":[
+        {
+            "title": "test",
+            "body": "contents",
+            "author": "김혜린",
+            "password": "1234",
+            "__v": 0
+        }
+
+    ]
+}

@@ -177,17 +177,10 @@
                             var fullData = [];
 
                             $.each(data.result, function(index, value){
-                                console.log("index: " + index);
-                                console.log(value);
                                 $.each(value, function(index, each_val){
-                                    console.log("a_data");
-                                    console.log(each_val);
                                     fullData.push(each_val);
                                 })
                             })
-
-                            console.log("allData:");
-                            console.log(fullData);
                             
                             var trIndex = 1;
                             $.each(fullData, function(index, value){
@@ -220,11 +213,11 @@
                             console.log(data);
                         }
                     })
-				})
+		})
             })
 
             $('#close-btn').click(function(){
-                $('#error-window').css('display', 'none');
+                $('#error-window').css('show', 'none');
             })
 
             // 대학명 검색필터 구현

@@ -6,7 +6,6 @@
         <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
         <script>
             var table_row = '<tr>\
-                                    <td>1</td>\
                                     <td>학교 밖 청소년 대학 입시 소양교육 소개</td>\
                                     <td><a class="link-btn" href="#"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>\
                                 </tr>';
@@ -17,7 +16,6 @@
                 success: function( data ) {
                     $.each(data.result, function(index, value){
                         var tmpData = '<tr>\
-                                            <td>'+value.order+'</td>\
                                             <td>'+value.title+'</td>\
                                             <td><a class="link-btn" href="'+value.url+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>\
                                         </tr>';
@@ -58,7 +56,6 @@
                         <table class="result-table">
                             <thead>
                                 <tr>
-                                    <th>목차</th>
                                     <th>제목</th>
                                     <th>링크</th>
                                 </tr>
@@ -74,7 +71,6 @@
                         <table class="result-table">
                             <thead>
                                 <tr>
-                                    <th>목차</th>
                                     <th>제목</th>
                                     <th>링크</th>
                                 </tr>
@@ -90,7 +86,6 @@
                         <table class="result-table" style="display: none;">
                             <thead>
                                 <tr>
-                                    <th>목차</th>
                                     <th>제목</th>
                                     <th>링크</th>
                                 </tr>

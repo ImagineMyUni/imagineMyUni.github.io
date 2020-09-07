@@ -38,9 +38,10 @@
                     console.log(String($('input[name=time]').val()).slice(0, 10)+" "+String($('input[name=time]').val()).slice(11));
 					event.preventDefault();
 					$.ajax({
-                        url: 'https://www.hellomyuni.kr/api/converter/each_converter',
-                        type: "GET",
+                        url: 'https://www.hellomyuni.kr/api/review_post',
+                        type: "POST",
                         dataType: "json",
+			jsonp: false,
                         data: {
                             title : $('input[name=title]').val(),
                             author: $('input[name=author]').val(),
@@ -53,6 +54,7 @@
                             // 실제 url로 바꾸기
                         },
                         error:function(request,status,error){
+				console.log(status);
                             console.log("status:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                         },
                         complete: function(data){

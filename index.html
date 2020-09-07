@@ -4,10 +4,6 @@
         <title>비교내신 환산</title>
         <link rel="stylesheet" href="assets/css/index.css">
         <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-<<<<<<< HEAD
-	<!--        <script type="text/javascript" src="assets/js/jquery.ajax-cross-origin.min.js"></script>-->
-=======
->>>>>>> 2cc1e3152503d9993e1cdc46ecc8bb8848bf3e50
     </head>
     <body>
 		<img id="limit-img" src="assets/img/test.jpg"/>
@@ -143,7 +139,6 @@
 				$('#abcd').submit(function(event){
 					event.preventDefault();
 					$.ajax({
-<<<<<<< HEAD
                         crossOrigin : true,
                         url: 'https://hellomyuni.kr/api/converter/each_converter',
                         type: "GET",
@@ -156,11 +151,6 @@
                             //'Access-Control-Allow-Methods':'GET',
                             //'Access-Control-Allow-Headers':'application/json',
                         },
-=======
-                        url: 'http://54.180.12.10:4000/api/converter/each_converter',
-                        type: "GET",
-                        dataType: "json",
->>>>>>> 2cc1e3152503d9993e1cdc46ecc8bb8848bf3e50
                         data: {
                             status : $('input[name=status]').val(),
                             korean: $('input[name=korean]').val(),
@@ -172,11 +162,6 @@
                             choice: $('input[name=choice]').val(),
                         },
 				        success: function( data ) {
-<<<<<<< HEAD
-						console.log("data", data);
-                            var json_data = JSON.parse(data);
-                            var fullData = []
-=======
                             $('input[name=status]').val("");
                             $('input[name=korean]').val("");
                             $('input[name=english]').val("");
@@ -186,7 +171,6 @@
                             $('input[name=history]').val("");
                             $('input[name=choice]').val("");
                             $('#subject-box').css('display', 'none');
->>>>>>> 2cc1e3152503d9993e1cdc46ecc8bb8848bf3e50
 
                             var fullData = [];
 

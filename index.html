@@ -139,9 +139,18 @@
 				$('#abcd').submit(function(event){
 					event.preventDefault();
 					$.ajax({
-                        url: 'http://54.180.12.10:4000/api/converter/each_converter',
+                        crossOrigin : true,
+                        url: 'https://hellomyuni.kr/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",
+			jsonp: false,
+                        headers: {
+			    'Content-Type' : "application/json",
+                            'Access-Control-Allow-Credentials' : true,
+                            'Access-Control-Allow-Origin':'*',
+                            //'Access-Control-Allow-Methods':'GET',
+                            //'Access-Control-Allow-Headers':'application/json',
+                        },
                         data: {
                             status : $('input[name=status]').val(),
                             korean: $('input[name=korean]').val(),

@@ -26,9 +26,10 @@
                         <h1 class="box-title">반영과목 및 비율 선택</h1>
                         <div class="sub-form">
                             <input type="radio" name="status" id="1" value="0"/><label for="1">전과목</label>
-                            <input type="radio" name="status" id="2" value="1"/><label for="2">필수과목(국/영/수/사/과/한)</label><br>
+                            <!-- <input type="radio" name="status" id="2" value="1"/><label for="2">필수과목(국/영/수/사/과/한)</label><br>
                             <input type="radio" name="status" id="3" value="2"/><label for="3">국/영/수 가중 반영</label>
-                            <input type="radio" name="status" id="4" value="3"/><label for="4">상위</label>
+                            <input type="radio" name="status" id="4" value="3"/><label for="4">상위</label> -->
+                            <div style="font-size: 1.5rem; padding-left: 50px; color:rgb(125, 125, 125)">전과목 꼭 체크해주세요.</div>
                         </div>
                     </div>
                     <div class="div1-4 initial box">
@@ -48,7 +49,7 @@
                         </div>
                     </div>
                 </form>
-				<div class="div1-5 box" id="result-box" style="display: block;">
+				<div class="div1-5 box" id="result-box">
                     <h1 class="box-title">환산 결과</h1>
                     <div class="filter">
                         <div>
@@ -143,16 +144,16 @@
                         url: 'https://hellomyuni.kr/api/converter/each_converter',
                         type: "GET",
                         dataType: "json",
-			jsonp: false,
+                        jsonp: false,
                         headers: {
-			    'Content-Type' : "application/json",
+                            'Content-Type' : "application/json",
                             'Access-Control-Allow-Credentials' : true,
                             'Access-Control-Allow-Origin':'*',
                             //'Access-Control-Allow-Methods':'GET',
                             //'Access-Control-Allow-Headers':'application/json',
                         },
                         data: {
-                            status : $('input[name=status]').val(),
+                            status : "0",
                             korean: $('input[name=korean]').val(),
                             english: $('input[name=english]').val(),
                             math: $('input[name=math]').val(),
@@ -162,15 +163,15 @@
                             choice: $('input[name=choice]').val(),
                         },
 				        success: function( data ) {
-                            $('input[name=status]').val("");
                             $('input[name=korean]').val("");
                             $('input[name=english]').val("");
                             $('input[name=math]').val("");
                             $('input[name=society]').val("");
-                            $('input[name=science]').val();
+                            $('input[name=science]').val("");
                             $('input[name=history]').val("");
                             $('input[name=choice]').val("");
                             $('#subject-box').css('display', 'none');
+                            $('#result-box').display('display', 'block');
 
                             var fullData = [];
 
@@ -191,9 +192,12 @@
                             $.each(fullData, function(index, value){
                                 var tmpData = '<tr class= "resultTr resultTr'+trIndex+'">\
                                                     <td class="university">'+value.university+'</td>\
-                                                    <td class="rest">'+value.area+'</td>\
-                                                    <td class="rest">'+String(value.converted).slice(0,4)+'</td>';
-                                if (value.link){
+                                                    <td class="rest">'+value.area+'</td>';
+                                                    
+                                if(value.converted){
+                                    tmpData += '<td class="rest">'+String(value.converted).slice(0,4)+'</td>';
+                                }
+                                if(value.link){
                                     tmpData += '<td class="rest"><a class="link-btn" href="'+value.link+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>'
                                 }                               
                                 tmpData += '</tr>';

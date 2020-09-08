@@ -190,6 +190,8 @@
                                                     
                                 if(value.converted){
                                     tmpData += '<td class="rest">'+String(value.converted).slice(0,4)+'</td>';
+                                }else{
+                                    tmpData += '<td class="rest">'+" "+'</td>';
                                 }
                                 if(value.link){
                                     tmpData += '<td class="rest"><a class="link-btn" href="'+value.link+'"><img src="../assets/img/이미지 16_2020-08-11/이미지 16.png" class="-\31 6"/></a></td>'

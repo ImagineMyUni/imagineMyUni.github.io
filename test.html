@@ -4,15 +4,134 @@
         <title>비교내신 환산</title>
         <link rel="stylesheet" href="assets/css/index.css">
         <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.ajax-cross-origin.min.js"></script>
     </head>
-    <body id="hello">
-        <div>
-            hello
+    <body>
+		<img id="limit-img" src="assets/img/test.jpg"/>
+		<div class="main-contents">
+			<header>
+				<div class="header-top">
+					<a href="index.html"><img src="assets/img/logo/마이유니-타이포-버전.png" class="logo-img"/></a>
+				</div>
+				<nav class="contents">
+					<ul>
+						<li><a href="index.html">비교내신 환산</a></li>
+						<li><a href="consulting.html">진학 컨설팅</a></li>
+						<li><a href="education.html">대학 입시 소양교육</a></li>
+					</ul>
+				</nav>
+            </header>
+            <div class="box">
+                <h2 class="box-title"><text>👉 검정고시 출신자 맞춤</text> <text class="second-line">진학 컨설팅 안내 👈</text></h2>
+                <div class="consult-box">
+                    <h3>✔ 대상 (아래의 항목에 해당되시는 분들)</h3>
+                    <div class="consult-detail">
+                        <p><strong>1.</strong> 검정고시 성적을 환산하고, 입시 결과를 비교해봐도, 희망 대학을 못 정하겠다!</p>
+                        <p><strong>2.</strong> 희망 대학-학과는 정했는데, 과연 내가 갈 수 있는 대학인지를 알아보고 싶다!</p>
+                        <p><strong>3.</strong> 대학입시 소양교육 강의를 아무리 돌려봐도 자기소개서 작성이 막막하다!</p>
+                        <p><strong>4.</strong> 자기소개서를 열심히 작성했는데, 주변에 첨삭해주실 분이 계시지 않는다!</p>  
+                        <p><strong>5.</strong> 혼자서 준비할 면접이 벌써부터 걱정이다!</p>  
+                    </div>
+                </div>
+                <div class="consult-box">
+                    <h3>✔ 강사 및 커리큘럼 소개</h3>
+                    <div class="consult-detail">
+                        <a href="https://www.youtube.com/watch?v=7rEQOlXro00&t=7s">- https://www.youtube.com/watch?v=7rEQOlXro00&t=7s</a>
+                    </div>
+                </div>
+                <div class="consult-box">
+                    <h3>✔ 컨설팅 내용</h3>
+                    <div class="consult-detail">
+                        <p>- 검정고시 출신자 전형 대입 경향 분석</p>
+                        <p>- 검정고시 성적 맞춤 지원 가능 대학 제시</p>
+                        <p>- 목표 대학/학과 설정, 지원 전략 수립</p>
+                        <p>- 전형(학생부 교과/종합/적성/수능) 선택</p>
+                        <p>- 자기소개서 재료 선정 및 첨삭</p>
+                        <p>- 수시 원서 접수 교육(9월 23일~29일)</p>
+                        <p>- 면접 준비(기본 문항 분석 및 모의 면접 진행)</p>
+                    </div>
+                </div>
+                <div class="consult-box">
+                    <h3>✔ 모집개요</h3>
+                    <div class="consult-detail">
+                    <p>- 수업방식: ZOOM을 활용한 온라인 수업<br>
+                        (모의 면접은 오프라인이 원칙이지만, 코로나 19 상황을 반영하여 진행합니다.)</p>
+                    <p>- 수업시간: 아래의 설문지에서 희망 컨설팅 시간을 선택해주시면, 개별적으로 연락드리도록 하겠습니다.</p>
+                    <p>- 수업대상: 학부모님도 컨설팅 참여 가능합니다.</p>
+                    </div>
+                </div>
+                <div class="consult-box">
+                    <h3>✔ 신청방법</h3>
+                    <div class="consult-detail">
+                    <p>- 구글 설문지 제출<br>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0VlLOzNwJUSXdF5zMSMgVAiuZBWEiHI1gcRIjTbBkF5crMg/viewform">
+                        https://docs.google.com/forms/d/e/<br>1FAIpQLSd0VlLOzNwJUSXdF5zMSMgVA<br>iuZBWEiHI1gcRIjTbBkF5crMg/viewform
+                    </a>
+                    </p>
+                    </div>
+                </div>
+                <div class="consult-box">
+                    <h3>✔ 문의사항</h3>
+                    <div class="consult-detail">
+                        <p>- 진학 컨설팅 관련 문의사항은 imaginemyuni@gmail.com으로 메일 보내주세요.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h1 class="box-title">후기 게시판</h1>
+                <table class="result-table">
+                    <tbody id="resultTbody">
+                        <tr>
+                            <td class="review-order">'+i+'</td>
+                            <td class="review-title" id="i">'+value.title+'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="mini-btn" id="write-btn">글쓰기</button>
+            </div>
         </div>
         <script type="text/javascript">
-        $('#hello').empty();
-        console.log($('#hello'));
-        </script>
+        $.ajax({
+            url: 'https://www.hellomyuni.kr/review_board.html',
+            type: 'GET',
+            success: function(data){
+                var i = 1;
+                $.each(data.result, function(index, value){
+                    var data = '<tr>\
+                            <td class="review-order">'+i+'</td>\
+                            <td class="review-title" id="'+i+'">'+value.title+'</td>\
+                        </tr>';
+                    i+=1;
+                    $('#resultTbody').append(data);
+                })
 
+            }
+        })
+
+        $('#write-btn').click(function(){
+            window.location.href = 'https://www.hellomyuni.kr/review_post.html';
+        })
+
+        $('.review-title').click(function(){
+            var post_id = $(this).attr('id');
+            console.log(post_id);
+		    window.location.href = `https://www.hellomyuni.kr/contents/review_read?id=${post_id}`;
+/*            $.ajax(
+                {
+                    url: 'url',
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        id : post_id
+                    },
+                    success:function(data){
+                        console.log("성공");
+                        window.location.href = 'https://www.hellomyuni.kr/review_detail.html';
+                    }
+                }
+            )*/
+
+        })
+        </script>
     </body>
 </html>

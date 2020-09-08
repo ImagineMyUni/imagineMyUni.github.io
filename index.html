@@ -181,7 +181,14 @@
                                     fullData.push(each_val);
                                 })
                             })
-                            
+                          	
+
+			    fullData.sort((a,b)=>{
+				    var univ1 = a.university.toUpperCase();
+				    var univ2 = b.university.toUpperCase();
+				    return (univ1 > univ2 ? 1:(univ1 == univ2 ? 0 : -1));
+			    });	
+
                             var trIndex = 1;
                             $.each(fullData, function(index, value){
                                 var tmpData = '<tr class= "resultTr resultTr'+trIndex+'">\

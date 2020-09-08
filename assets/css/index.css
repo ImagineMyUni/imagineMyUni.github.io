@@ -13,7 +13,32 @@ body{
 @media(min-width: 1024px){
     #limit-img{
         display: block;
-        object-fit: contain0;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #limit-img img{
+        position: absolute;
+        width: 275px;
+        height: 125px;
+        left: 50%;
+        top: 40%;
+        margin-left: -137.5px;
+        margin-top: -62.5px;
+    }
+
+    #limit-img div{
+        position: absolute;
+        font-size: 1.5rem;
+        text-align: center;
+        color: gray;
+        width: 1000px;
+        height: 40px;
+        left: 50%;
+        top: 50%;
+        margin-left: -500px;
+        margin-top: -20px;
     }
 
     .main-contents{

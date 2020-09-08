@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>비교내신 환산</title>
+        <title>대입정보 홈페이지 My Uni</title>
         <link rel="stylesheet" href="assets/css/index.css">
         <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
     </head>
@@ -183,11 +183,11 @@
                             })
                           	
 
-			    fullData.sort((a,b)=>{
-				    var univ1 = a.university.toUpperCase();
-				    var univ2 = b.university.toUpperCase();
-				    return (univ1 > univ2 ? 1:(univ1 == univ2 ? 0 : -1));
-			    });	
+                            fullData.sort((a,b)=>{
+                                var univ1 = a.university.toUpperCase();
+                                var univ2 = b.university.toUpperCase();
+                                return (univ1 > univ2 ? 1:(univ1 == univ2 ? 0 : -1));
+                            });	
 
                             var trIndex = 1;
                             $.each(fullData, function(index, value){

@@ -55,7 +55,7 @@
                             author: $('input[name=author]').val(),
                             password: $('input[name=password]').val(),
                             time: String($('input[name=time]').val()).slice(0, 10)+" "+String($('input[name=time]').val()).slice(11),
-                            body: $('input[name=body]').val(),
+                            body: $('textarea[name=body]').val(),
                         },
 				        success: function( data ) {
                             window.location.href = 'https://www.hellomyuni.kr/consulting.html';

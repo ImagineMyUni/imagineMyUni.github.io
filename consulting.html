@@ -89,18 +89,19 @@
         </div>
         <script type="text/javascript">
         $.ajax({
-            url: 'https://www.hellomyuni.kr/review_board.html',
+            url: 'https://www.hellomyuni.kr/api/review_board',
             type: 'GET',
             success: function(data){
                 var i = 1;
                 $.each(data.result, function(index, value){
                     var data = '<tr>\
                             <td class="review-order">'+i+'</td>\
-                            <td class="review-title" id="'+i+'">'+value.title+'</td>\
+				<td class="review-title" id='+value._id+'>'+value.title+'</td>\
                         </tr>';
                     i+=1;
                     $('#resultTbody').append(data);
                 })
+		makeClick();
 
             }
         })
@@ -108,10 +109,10 @@
         $('#write-btn').click(function(){
             window.location.href = 'https://www.hellomyuni.kr/review_post.html';
         })
-
+	function makeClick(){
         $('.review-title').click(function(){
             var post_id = $(this).attr('id');
-		    window.location.href = `https://www.hellomyuni.kr/contents/review_read?id=${post_id}`;
+		    window.location.href = `https://www.hellomyuni.kr/review_detail?id=${post_id}`;
 /*            $.ajax(
                 {
                     url: 'url',
@@ -127,7 +128,7 @@
                 }
             )*/
 
-        })
+	})};
         </script>
     </body>
 </html>

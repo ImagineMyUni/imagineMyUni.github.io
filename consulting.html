@@ -80,24 +80,38 @@
             <div class="box">
                 <h1 class="box-title">후기 게시판</h1>
                 <table class="result-table">
-                    <tbody>
-                        <tr>
-                            <td class="review-order">1</td>
-                            <td class="review-title" id="0">후기 제목</td>
-                        </tr>
+                    <tbody id="resultTbody">
+                        
                     </tbody>
                 </table>
                 <button type="button" class="mini-btn" id="write-btn">글쓰기</button>
             </div>
         </div>
         <script type="text/javascript">
+        $.ajax({
+            url: 'https://www.hellomyuni.kr/review_board.html',
+            type: 'GET',
+            success: function(data){
+                var i = 1;
+                $.each(data.result, function(index, value){
+                    var data = '<tr>\
+                            <td class="review-order">'+i+'</td>\
+                            <td class="review-title" id="'+i+'">'+value.title+'</td>\
+                        </tr>';
+                    i+=1;
+                    $('#resultTbody').append(data);
+                })
+
+            }
+        })
+
         $('#write-btn').click(function(){
             window.location.href = 'https://www.hellomyuni.kr/review_post.html';
         })
 
         $('.review-title').click(function(){
             var post_id = $(this).attr('id');
-		window.location.href = `https://www.hellomyuni.kr/contents/review_read?id=${post_id}`;
+		    window.location.href = `https://www.hellomyuni.kr/contents/review_read?id=${post_id}`;
 /*            $.ajax(
                 {
                     url: 'url',

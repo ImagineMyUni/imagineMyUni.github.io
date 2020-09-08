@@ -41,7 +41,7 @@
                         url: 'https://www.hellomyuni.kr/api/review_post',
                         type: "POST",
                         dataType: "json",
-			jsonp: false,
+			            jsonp: false,
                         data: {
                             title : $('input[name=title]').val(),
                             author: $('input[name=author]').val(),
@@ -54,7 +54,7 @@
                             // 실제 url로 바꾸기
                         },
                         error:function(request,status,error){
-				console.log(status);
+				        console.log(status);
                             console.log("status:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                         },
                         complete: function(data){
